@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ikut Ekskul Coding? 💻</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f7f7f7;
+      transition: background 0.5s ease;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .meme {
+      max-width: 300px;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    #content {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="content">
+    <h1>Jadi... tertarik ikut ekskul coding?</h1>
+    <button class="btn" onclick="yass()">YASSS!</button>
+    <button class="btn" onclick="maybe()">Mungkin...?</button>
+    <button class="btn" onclick="nope()">Ga dulu deh</button>
+  </div>
+
+  <script>
+    const content = document.getElementById('content');
+    const body = document.body;
+    let noLevel = 1;
+
+    function yass() {
+      body.style.backgroundColor = "#D1FFD6"; // hijau muda
+      content.innerHTML = `
+        <h1>🎉 YASSS! Selamat Datang di Dunia Coding!</h1>
+        <img src="https://i.pinimg.com/736x/72/f3/c5/72f3c5759ab36726fe2b4b8d0a54cb19.jpg" class="meme" alt="selebrasi">
+        <p>Cool! Kamu jadi bagian dari generasi keren!😎</p>
+        <p>Bisa kontak 089664741200 buat daftar! 📞</p>
+      `;
+    }
+
+    function maybe() {
+      body.style.backgroundColor = "#fff6cc"; // kuning lembut
+      content.innerHTML = `
+        <h1>Hmm... Masih mikir ya?</h1>
+        <img src="https://i.pinimg.com/736x/47/5f/e8/475fe85c0bf4b879c32dadd89c39aa94.jpg" class="meme" alt="meme">
+        <p>Yakin??? Coding tuh seru loh, bisa bikin game, website, dan jadi keren 😎</p>
+        <button class="btn" onclick="yass()">YASSS!</button>
+        <button class="btn" onclick="nope()">Ga dulu deh</button>
+      `;
+    }
+
+    function nope() {
+      let bgColor = "#ffd6d6"; // awal merah muda
+      if (noLevel === 2) bgColor = "#ffb3b3"; // lebih merah
+      if (noLevel === 3) bgColor = "#ff8a8a"; // merah tua
+      if (noLevel >= 4) bgColor = "#ff4d4d"; // merah marah
+
+      body.style.backgroundColor = bgColor;
+
+      if (noLevel === 1) {
+        content.innerHTML = `
+          <h1>😤 Kok gitu sih?</h1>
+          <img src="https://i.pinimg.com/736x/50/e9/3e/50e93e96cbcd509900e9ad4b2910c40d.jpg" class="meme">
+          <p>Padahal coding itu masa depan loh!</p>
+          <button class="btn" onclick="yass()">YASSS!</button>
+          <button class="btn" onclick="nope()">Masih nggak</button>
+        `;
+        noLevel++;
+      } else if (noLevel === 2) {
+        content.innerHTML = `
+          <h1>😠 Lah kok ngeyel sih??</h1>
+          <img src="https://i.pinimg.com/736x/2c/85/9e/2c859e3e55df576cd5feb07804083a05.jpg" class="meme">
+          <p>Yakin nggak mau punya skill keren kayak hacker film?</p>
+          <button class="btn" onclick="yass()">YASSS!</button>
+          <button class="btn" onclick="nope()">Pokoknya ga mau!</button>
+        `;
+        noLevel++;
+      } else {
+        content.innerHTML = `
+          <h1>😡 Kamu memaksa kami mengaktifkan MODE MARAH</h1>
+          <img src="https://i.pinimg.com/736x/a5/ef/bb/a5efbb5e0d2f0c0d1a10755eff42e530.jpg" class="meme">
+          <p>Pokoknya gaboleh nolak! Pilihannya cuma satu:</p>
+          <button class="btn" onclick="yass()">YASSS!</button>
+        `;
+        noLevel++;
+      }
+    }
+  </script>
+
+</body>
+</html>
